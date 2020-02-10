@@ -1,5 +1,3 @@
-from json import JSONDecodeError
-
 import telebot
 import requests
 import html2text
@@ -10,27 +8,21 @@ import time
 logger = telebot.logger
 telebot.logger.setLevel(logging.DEBUG)
 
-#logging.basicConfig(filename='app.log', filemode='w', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                   # level=logging.DEBUG)
-#logger = logging.getLogger(__name__)
-#logging.warning("Start logging")
-
-
 knownUsers = []  # save these in a file,
 userStep = {}  # so they won't reset every time the bot restarts
 
 
-def get_user_step(uid):
-    if uid in userStep:
-        return userStep[uid]
-    else:
-        knownUsers.append(uid)
-        userStep[uid] = 0
-        print("New user detected, who hasn't used \"/start\" yet")
-        return 0
+# def get_user_step(uid):
+#     if uid in userStep:
+#         return userStep[uid]
+#     else:
+#         knownUsers.append(uid)
+#         userStep[uid] = 0
+#         print("New user detected, who hasn't used \"/start\" yet")
+#         return 0
 
 
-# only used for console output now
+
 def listener(messages):
     """
     When new messages arrive TeleBot will call this function.
@@ -41,10 +33,7 @@ def listener(messages):
             t = time.localtime()
             current_time = time.strftime("%d %b %Y %H:%M:%S", t)
             print(str(current_time) + " " + str(m.chat.first_name) + " [" + str(m.chat.id) + "]: " + str(m.text))
-            # f = open("UH-log.txt", 'a')
-            # f.write(
-            #   str(current_time) + " " + str(m.chat.first_name) + " [" + str(m.chat.id) + "]: " + str(m.text) + "\r")
-            # f.close()
+
 
 
 bot = telebot.TeleBot("1067624262:AAH2OCc7iyXYufX0WuEVQdhHeW5NsURLaTI")
@@ -200,6 +189,3 @@ if __name__ == '__main__':
         bot.polling()
     except Exception:
         pass
-
-
-# bot.polling()
