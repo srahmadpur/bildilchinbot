@@ -29,7 +29,7 @@ def send_echo(m):
     bot.send_chat_action(cid, 'typing')
     bot.send_message(cid, "Bildilçinə xoş gəldin!")
     bot.send_chat_action(cid, 'typing')
-    bot.send_message(cid, "Zəhmət olmasa axtarış dilini seç: /az , /ru , /en")
+    bot.send_message(cid, "Zəhmət olmasa axtarış dilini seç: /az /ru /en")
 
 
 
@@ -59,14 +59,14 @@ def get_info_az(m):
                         bot.send_message(cid, a[x:x + 4096])
                 else:
                     bot.send_message(cid, a)
-                bot.send_message(cid, "Yeni söz axtarmaq üçün /start və ya /az  komandasından istifadə et!")
+                bot.send_message(cid, "Yeni söz axtarmaq üçün /az /ru /en komandalarından istifadə et!")
                 break
         else:
             bot.send_message(cid,
-                     "Axtardığınız söz tapılmadı!  Yeni söz axtarmaq üçün /start və ya /az komandasından istifadə "
+                     "Axtardığınız söz tapılmadı! Yeni söz axtarmaq üçün /az /ru /en komandalarından istifadə "
                      "et!")
     except requests.exceptions.RequestException:  # This is the correct syntax
-        bot.send_message(cid, "Xəta baş verdi. Zəhmət olmasa bir az sonra yenə cəhd edin..")
+        bot.send_message(cid, "Xəta baş verdi. Zəhmət olmasa bir az sonra yenə cəhd edin.")
 
 
 
@@ -95,11 +95,11 @@ def get_info_ru(m):
                         bot.send_message(cid, a[x:x + 4096])
                 else:
                     bot.send_message(cid, a)
-                bot.send_message(cid, "Нажмите /start или /ru для нового поиска!")
+                bot.send_message(cid, "Нажмите /az /ru /en для нового поиска!")
                 break
         else:
             bot.send_message(cid,
-                         "Слово, которое вы ищете, не найдено! Используйте команду /start или /ru, чтобы найти новое "
+                         "Слово, которое вы ищете, не найдено! Используйте команду /az /ru /en , чтобы найти новое "
                          "слово!")
     except requests.exceptions.RequestException:  # This is the correct syntax
         bot.send_message(cid, "Упс! Что-то пошло не так. Пожалуйста, попробуйте позже..")
@@ -125,17 +125,17 @@ def get_info_en(m):
                 a = word["description"]
                 a = html2text.html2text(a)
                 bot.send_chat_action(cid, 'typing')
-                bot.send_message(cid, " Search Results for: " + str(src))
+                bot.send_message(cid, " Search results for: " + str(src))
                 if len(a) > 4096:
                     for x in range(0, len(a), 4096):
                         bot.send_message(cid, a[x:x + 4096])
                 else:
                     bot.send_message(cid, a)
-                bot.send_message(cid, "Press /start or /en for a new search!")
+                bot.send_message(cid, "Press /az /ru /en for a new search!")
                 break
         else:
             bot.send_message(cid,
-                         "The word you are looking for is not found! Use the /start or /en command to find a new word!")
+                         "The word you are looking for is not found! Use the /az /ru /en command to find a new word!")
     except requests.exceptions.RequestException:  # This is the correct syntax
         bot.send_message(cid, "Oops.. Something went wrong. Please try again later..")
 
@@ -150,7 +150,7 @@ def send_error(m):
     bot.send_chat_action(cid, 'typing')
     bot.send_message(cid, "Göndərdiyinizi anlamadım!")
     bot.send_chat_action(cid, 'typing')
-    bot.send_message(cid, "Zəhmət olmasa axtarış dilini seçin: /az , /ru , /en")
+    bot.send_message(cid, "Zəhmət olmasa axtarış dilini seçin: /az /ru /en")
     # time.sleep(5)
 
 
