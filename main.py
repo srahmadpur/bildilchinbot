@@ -11,7 +11,7 @@ def listener(messages):
     When new messages arrive TeleBot will call this function.
     """
     for m in messages:
-        if m.content_type == 'text' or "pinned_message":
+        if not m.content_type != 'text' or "pinned_message":
             # print the sent message to the console
             t = time.localtime()
             current_time = time.strftime("%d %b %Y %H:%M:%S", t)
@@ -59,7 +59,7 @@ def get_info_az(m):
                         bot.send_message(cid, a[x:x + 4096])
                 else:
                     bot.send_message(cid, a)
-                bot.send_message(cid, "Yeni söz axtarmaq üçün /start və ya /AZ  komandasından istifadə et!")
+                bot.send_message(cid, "Yeni söz axtarmaq üçün /start və ya /az  komandasından istifadə et!")
                 break
         else:
             bot.send_message(cid,
@@ -95,7 +95,7 @@ def get_info_ru(m):
                         bot.send_message(cid, a[x:x + 4096])
                 else:
                     bot.send_message(cid, a)
-                bot.send_message(cid, "Нажмите /start или /RU для нового поиска!")
+                bot.send_message(cid, "Нажмите /start или /ru для нового поиска!")
                 break
         else:
             bot.send_message(cid,
@@ -131,7 +131,7 @@ def get_info_en(m):
                         bot.send_message(cid, a[x:x + 4096])
                 else:
                     bot.send_message(cid, a)
-                bot.send_message(cid, "Press /start or /EN for a new search!")
+                bot.send_message(cid, "Press /start or /en for a new search!")
                 break
         else:
             bot.send_message(cid,
