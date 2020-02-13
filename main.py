@@ -41,10 +41,10 @@ def start_message(m):
 
 @bot.callback_query_handler(func=lambda call: True)
 def query_handler(call):
-    bot.answer_callback_query(callback_query_id=call.id, text='Bildilçin, Sizin üçün axtarar!')
+    bot.answer_callback_query(callback_query_id=call.id, text='Bildilçin, Sizin üçün axtarar! ')
     answer = ''
     if call.data == 'az':
-        answer = "Axtarmaq istədiyiniz sözü daxil edin:"
+        answer = "Axtarmaq istədiyiniz sözü daxil edin: "
 
         @bot.message_handler(content_types="text")
         def get_info_az(m):
@@ -83,7 +83,7 @@ def query_handler(call):
 
 
     elif call.data == 'ru':
-        answer = 'Введите слово, которое вы хотите найти:!'
+        answer = 'Введите слово, которое вы хотите найти: '
 
         @bot.message_handler(content_types="text")
         def get_info_ru(m):
@@ -123,7 +123,7 @@ def query_handler(call):
 
 
     elif call.data == 'en':
-        answer = 'Enter the word you want to find!'
+        answer = 'Enter the word you want to find: '
 
         @bot.message_handler(content_types="text")
         def get_info_en(m):
