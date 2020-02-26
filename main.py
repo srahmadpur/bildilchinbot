@@ -5,7 +5,7 @@ import html2text
 import logging
 import time
 
-logging.basicConfig(level=logging.ERROR, filename="sys.log")
+logging.basicConfig(level=logging.INFO, filename="sys.log")
 
 
 def listener(messages):
@@ -24,7 +24,7 @@ def listener(messages):
             f.close()
 
 
-token = '1067624262:AAFc9eePf55C7BapCDhCVFr8qaG09OtyTHw'
+token = '1067624262:AAGHOEfLllSct25fC-ZJVYIN_4J-qmppus4'
 bot = telebot.TeleBot(token)
 bot.set_update_listener(listener)  # register listener
 
@@ -45,7 +45,7 @@ def query_handler(call):
     answer = ''
     if call.data == 'az':
         answer = "Axtarmaq istədiyiniz sözü daxil edin: "
-
+        del bot.message_handlers[2:]
         @bot.message_handler(content_types="text")
         def get_info_az(m):
             cid = m.chat.id
@@ -81,10 +81,9 @@ def query_handler(call):
             except requests.exceptions.RequestException:  # This is the correct syntax
                 bot.send_message(cid, "Xəta baş verdi. Zəhmət olmasa bir az sonra yenə cəhd edin.")
 
-
     elif call.data == 'ru':
         answer = 'Введите слово, которое вы хотите найти: '
-
+        del bot.message_handlers[2:]
         @bot.message_handler(content_types="text")
         def get_info_ru(m):
             cid = m.chat.id
@@ -120,11 +119,11 @@ def query_handler(call):
             except requests.exceptions.RequestException:  # This is the correct syntax
                 bot.send_sticker(cid, "CAACAgIAAxkBAAILTF5FEjDaUtAO2n0qlhh9ZfDkcv_oAAJFAAMh8AQcVEccChUEGqEYBA")
                 bot.send_message(cid, "Произошла ошибка. Пожалуйста, попробуйте позже.")
-
+            return
 
     elif call.data == 'en':
         answer = 'Enter the word you want to find: '
-
+        del bot.message_handlers[2:]
         @bot.message_handler(content_types="text")
         def get_info_en(m):
             cid = m.chat.id
@@ -159,9 +158,10 @@ def query_handler(call):
             except requests.exceptions.RequestException:  # This is the correct syntax
                 bot.send_sticker(cid, "CAACAgIAAxkBAAILTF5FEjDaUtAO2n0qlhh9ZfDkcv_oAAJFAAMh8AQcVEccChUEGqEYBA")
                 bot.send_message(cid, "Oops.. Something went wrong. Please try again later..")
+            return
 
     bot.send_message(call.message.chat.id, answer)
-
+    return
 
 @bot.message_handler(content_types=["audio", "emoji", "document", "photo", "sticker", "video", "video_note",
                                     "voice", "location", 'contact', "new_chat_members", "left_chat_member",
