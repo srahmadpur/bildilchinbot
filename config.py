@@ -1,7 +1,7 @@
 
 
 #Bot token
-token = "900555854:AAGl6LXOB_ID82M8bFepSV7eUnGbzMI0Lk8"
+token = "1067624262:AAGHOEfLllSct25fC-ZJVYIN_4J-qmppus4"
 
 #Messages
 
