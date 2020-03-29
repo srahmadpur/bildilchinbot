@@ -4,10 +4,14 @@ import search_parser as sp
 from search_parser import word_info, word_list
 import time
 import logging
-import gc
 
 
 logging.basicConfig(level=logging.INFO, filename="sys.log")
+
+
+knownUsers = []
+userStep = {}
+
 
 def listener(messages):
     """
@@ -28,10 +32,6 @@ def listener(messages):
 bot = telebot.TeleBot(config.token)
 bot.set_update_listener(listener)  # register listener
 
-#Global variables:
-
-cd = ""
-
 
 
 @bot.message_handler(commands=['start'])
@@ -41,13 +41,31 @@ def start_message(m):
     markup.add(telebot.types.InlineKeyboardButton(text='Azərbaycan', callback_data="az"))
     markup.add(telebot.types.InlineKeyboardButton(text='Русский', callback_data="ru"))
     markup.add(telebot.types.InlineKeyboardButton(text='English', callback_data="en"))
+    if cid not in knownUsers:
+        knownUsers.append(cid)
+        userStep[cid] = ""
+        bot.send_message(cid, text=config.Lang_chose_az, reply_markup=markup)
+    else:
+        bot.send_message(cid, text=config.Query_handler["fa_{}".format(userStep[cid])])
+        
+
+
+@bot.message_handler(commands=["lang"])
+def change_lang(m):
+    cid = m.chat.id
+    markup = telebot.types.InlineKeyboardMarkup()
+    markup.add(telebot.types.InlineKeyboardButton(text='Azərbaycan', callback_data="az"))
+    markup.add(telebot.types.InlineKeyboardButton(text='Русский', callback_data="ru"))
+    markup.add(telebot.types.InlineKeyboardButton(text='English', callback_data="en"))
     bot.send_message(cid, text=config.Lang_chose_az, reply_markup=markup)
+
+
+
 
 @bot.callback_query_handler(func=lambda call: True)
 def query_handler(call):
     bot.answer_callback_query(callback_query_id=call.id, text=config.Query_handler["hello_msg"])
     first_answer = ''
-    global cd
     if call.data == 'az':
         cd = call.data
         first_answer = config.Query_handler["fa_az"]
@@ -58,36 +76,45 @@ def query_handler(call):
         cd = call.data
         first_answer = config.Query_handler["fa_en"]
     bot.send_message(call.message.chat.id, first_answer)
-
+    userStep.update({call.message.chat.id:cd})
 
 
 @bot.message_handler(func=lambda message: True)
 def word_search(message):
-    global cd
-    if cd == "":
-        bot.send_message(message.chat.id, text= config.Lang_chose_az)
+    cid = message.chat.id
+    if cid not in knownUsers:
+        knownUsers.append(cid)
+        userStep.update({cid:""}) 
+        #"New user detected, who hasn't used \"/start\" yet"
     else:
-        if str(message.text) == "None":
-            bot.send_sticker(message.chat.id, config.none_text["none_scr_id"])
-            bot.send_message(message.chat.id, text= config.none_text[("none_{}".format(cd))])
+        cd = userStep[cid]
+        if cd == "":
+            bot.send_message(message.chat.id, text= config.lang_not_chsn)
         else:
-            second_answer = sp.dict_search(word=message.text, lang= cd)
-            if second_answer == "Word_Not_Found":
-                second_answer = config.No_Word[("no_{}".format(cd))]
-                bot.send_message(message.chat.id, second_answer)
+            if str(message.text) == "None":
+                bot.send_sticker(message.chat.id, config.none_text["none_scr_id"])
+                bot.send_message(message.chat.id, text= config.none_text[("none_{}".format(cd))])
             else:
-                bot.send_message(message.chat.id, "{0} {1}".format(config.Yes_Word["yes_{}".format(cd)] , message.text))
-                for element in second_answer:
-                    bot.send_message(message.chat.id, element.dict_name)
-                    if len(element.w_info) > 4096:
-                        for x in range(0, len(element.w_info), 4096):
-                            bot.send_message(message.chat.id, element.w_info[x:x + 4096])
-                            
-                    else:
-                        bot.send_message(message.chat.id, element.w_info)
-                                      
-                bot.send_message(message.chat.id, text= config.New_Word[("new_{}".format(cd))])
-                word_list.clear()
+                second_answer = sp.dict_search(word=message.text, lang= cd)
+                if second_answer == "Word_Not_Found":
+                    second_answer = config.No_Word[("no_{}".format(cd))]
+                    bot.send_message(message.chat.id, second_answer)
+                else:
+                    bot.send_message(message.chat.id, "{0} {1}".format(config.Yes_Word["yes_{}".format(cd)] , message.text))
+                    for element in second_answer:
+                        bot.send_message(message.chat.id, element.dict_name)
+                        if len(element.w_info) > 4096:
+                            for x in range(0, len(element.w_info), 4096):
+                                bot.send_message(message.chat.id, element.w_info[x:x + 4096])
+
+                        else:
+                            bot.send_message(message.chat.id, element.w_info)
+
+                    bot.send_message(message.chat.id, text= config.New_Word[("new_{}".format(cd))])
+                    word_list.clear()
+                    cd = ""
+
+
 
 if __name__ == '__main__':
     try:

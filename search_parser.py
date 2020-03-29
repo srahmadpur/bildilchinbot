@@ -13,10 +13,6 @@ class word_info:
         self.dict_name = dict_name
         parsed_html = BeautifulSoup(self.w_info, 'html.parser')   
         self.w_info = parsed_html.get_text()
-    
-    def __del__(self): 
-        print('Deleted.')
-
 
 
 
@@ -35,8 +31,6 @@ def dict_search(word="", lang="", encoding="utf-8"):
             if len(data) > 0:
                 for i in data:
                     word_list.append(word_info(randint(1,50), i["description"] , i["dictionary"]["name{}".format(lang.capitalize())]))
-                    # break
-                print(word_list)
                 return word_list
             else:
                 return "Word_Not_Found"

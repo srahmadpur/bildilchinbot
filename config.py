@@ -5,7 +5,10 @@ token = "1067624262:AAGHOEfLllSct25fC-ZJVYIN_4J-qmppus4"
 
 #Messages
 
-Lang_chose_az = "Zəhmət olmasa axtarış dilini seçmək üçün /start komandasından istifadə edin!"
+Lang_chose_az = "Zəhmət olmasa axtarış dilini seçin!"
+lang_not_chsn = "Atarış dili seçilməyib! Zəhmət olmasa /lang komandası ilə axtarış dilini seçin!"
+no_start = "Zəhmət olmasa ilk öncə /start komandasından istifadə edin!"
+
 
 none_text = {
     "none_az" : "Mən yalnız sözləri axtara bilirəm.",
@@ -20,14 +23,15 @@ Query_handler = {
     "hello_msg" : "Bildilçin, Sizin üçün axtarar!" ,
     "fa_az" : "Axtarmaq istədiyiniz sözü daxil edin:" ,
     "fa_ru" : "Введите слово, которое вы хотите найти:" ,
-    "fa_en" : "Enter the word you want to find:"
+    "fa_en" : "Enter the word you want to find:" ,
+    "fa_" : lang_not_chsn
 }
 
 
 No_Word = {
-    "no_az" : "Axtardığınız söz tapılmadı! Yeni sözü daxil edin və ya axtarış dilini dəyişmək üçün /start komandasından istifadə edin!",
-    "no_ru" : "Слово, которое вы ищете, не найдено! Введите новое слово или используйте команду /start чтобы изменить язык поиска.",
-    "no_en" : "The word you are looking for not found! Enter a new word or use the /start command to change the language."
+    "no_az" : "Axtardığınız söz tapılmadı! Yeni sözü daxil edin və ya axtarış dilini dəyişmək üçün /lang komandasından istifadə edin!",
+    "no_ru" : "Слово, которое вы ищете, не найдено! Введите новое слово или используйте команду /lang чтобы изменить язык поиска.",
+    "no_en" : "The word you are looking for not found! Enter a new word or use the /lang command to change the language."
     }
 
 Yes_Word = {
@@ -38,7 +42,7 @@ Yes_Word = {
 
 
 New_Word = {
-    "new_az" : "Yeni sözü daxil edin və ya axtarış dilini dəyişmək üçün /start komandasından istifadə edin!" ,
-    "new_ru" : "Введите новое слово или используйте команду /start чтобы изменить язык поиска!" ,
-    "new_en" : "Enter a new word or use the /start command to change the search language!"
+    "new_az" : "Yeni sözü daxil edin və ya axtarış dilini dəyişmək üçün /lang komandasından istifadə edin!" ,
+    "new_ru" : "Введите новое слово или используйте команду /lang чтобы изменить язык поиска!" ,
+    "new_en" : "Enter a new word or use the /lang command to change the search language!"
     }
