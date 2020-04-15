@@ -102,7 +102,7 @@ def word_search(message):
                 else:
                     bot.send_message(message.chat.id, "{0} {1}".format(config.Yes_Word["yes_{}".format(cd)] , message.text))
                     for element in second_answer:
-                        bot.send_message(message.chat.id, element.dict_name)
+                        bot.send_message(message.chat.id,"<b>" + element.dict_name + "</b>", parse_mode = "HTML")
                         if len(element.w_info) > 4096:
                             for x in range(0, len(element.w_info), 4096):
                                 bot.send_message(message.chat.id, element.w_info[x:x + 4096])
