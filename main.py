@@ -57,7 +57,11 @@ def change_lang(m):
     markup.add(telebot.types.InlineKeyboardButton(text='Azərbaycan', callback_data="az"))
     markup.add(telebot.types.InlineKeyboardButton(text='Русский', callback_data="ru"))
     markup.add(telebot.types.InlineKeyboardButton(text='English', callback_data="en"))
-    bot.send_message(cid, text=config.Lang_chose_az, reply_markup=markup)
+    if cid not in knownUsers:
+        knownUsers.append(cid)
+        bot.send_message(cid, text=config.Lang_chose_az, reply_markup=markup)
+    else:
+        bot.send_message(cid, text=config.Lang_chose_az, reply_markup=markup)
 
 
 
