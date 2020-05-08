@@ -72,15 +72,18 @@ def query_handler(call):
     first_answer = ''
     if call.data == 'az':
         cd = call.data
+        userStep.update({call.message.chat.id: cd})
         first_answer = config.Query_handler["fa_az"]
     elif call.data == 'ru':
         cd = call.data
+        userStep.update({call.message.chat.id: cd})
         first_answer = config.Query_handler["fa_ru"]
     elif call.data == 'en':
         cd = call.data
+        userStep.update({call.message.chat.id: cd})
         first_answer = config.Query_handler["fa_en"]
     bot.send_message(call.message.chat.id, first_answer)
-    userStep.update({call.message.chat.id:cd})
+
 
 
 @bot.message_handler(func=lambda message: True)
@@ -88,35 +91,31 @@ def word_search(message):
     cid = message.chat.id
     if cid not in knownUsers:
         knownUsers.append(cid)
-        userStep.update({cid:""}) 
+        userStep.update({cid:""})
+        bot.send_message(message.chat.id, text=config.lang_not_chsn)
         #"New user detected, who hasn't used \"/start\" yet"
     else:
         cd = userStep[cid]
-        if cd == "":
-            bot.send_message(message.chat.id, text= config.lang_not_chsn)
+        if str(message.text) == "None":
+            bot.send_sticker(message.chat.id, config.none_text["none_scr_id"])
+            bot.send_message(message.chat.id, text= config.none_text[("none_{}".format(cd))])
         else:
-            if str(message.text) == "None":
-                bot.send_sticker(message.chat.id, config.none_text["none_scr_id"])
-                bot.send_message(message.chat.id, text= config.none_text[("none_{}".format(cd))])
+            second_answer = sp.dict_search(word=message.text, lang= cd)
+            if second_answer == "Word_Not_Found":
+                second_answer = config.No_Word[("no_{}".format(cd))]
+                bot.send_message(message.chat.id, second_answer)
             else:
-                second_answer = sp.dict_search(word=message.text, lang= cd)
-                if second_answer == "Word_Not_Found":
-                    second_answer = config.No_Word[("no_{}".format(cd))]
-                    bot.send_message(message.chat.id, second_answer)
-                else:
-                    bot.send_message(message.chat.id, "{0} {1}".format(config.Yes_Word["yes_{}".format(cd)] , message.text))
-                    for element in second_answer:
-                        bot.send_message(message.chat.id,"<b>" + element.dict_name + "</b>", parse_mode = "HTML")
-                        if len(element.w_info) > 4096:
-                            for x in range(0, len(element.w_info), 4096):
-                                bot.send_message(message.chat.id, element.w_info[x:x + 4096])
-
-                        else:
-                            bot.send_message(message.chat.id, element.w_info)
-
-                    bot.send_message(message.chat.id, text= config.New_Word[("new_{}".format(cd))])
-                    word_list.clear()
-                    cd = ""
+                bot.send_message(message.chat.id, "{0} {1}".format(config.Yes_Word["yes_{}".format(cd)] , message.text))
+                for element in second_answer:
+                    bot.send_message(message.chat.id, "<b>" + element.dict_name + "</b>", parse_mode="HTML")
+                    if len(element.w_info) > 4096:
+                        for x in range(0, len(element.w_info), 4096):
+                            bot.send_message(message.chat.id, element.w_info[x:x + 4096])
+                    else:
+                        bot.send_message(message.chat.id, element.w_info)
+                bot.send_message(message.chat.id, text= config.New_Word[("new_{}".format(cd))])
+                word_list.clear()
+                cd = ""
 
 
 

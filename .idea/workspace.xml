@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="779fba68-1bee-4c6e-baec-f55eba84cddf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/bilbot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bilbot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UH.log" beforeDir="false" afterPath="$PROJECT_DIR$/UH.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys.log" beforeDir="false" afterPath="$PROJECT_DIR$/sys.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,18 +37,18 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Wordbot-master" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -61,9 +66,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\sahmadpur\venv\Python3.8\Scripts\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\sahmadpur\.virtualenvs\bildilchinbot\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
@@ -75,18 +80,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -152,13 +145,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -179,11 +171,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="552" y="183" key="#Notifications/0.0.1920.1050@0.0.1920.1050" timestamp="1581590822632" />
-    <state x="414" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581591166122">
+    <state x="414" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588922827484">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="414" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1581591166122" />
-    <state x="414" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1581331703139" />
+    <state x="414" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1588922827484" />
     <state x="640" y="262" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581590121483">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -198,52 +190,56 @@
     </state>
     <state x="740" y="267" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1581578211128" />
     <state x="740" y="267" key="FileChooserDialogImpl/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1581508973448" />
-    <state width="1877" height="220" key="GridCell.Tab.0.bottom" timestamp="1581593038459">
+    <state width="1899" height="345" key="GridCell.Tab.0.bottom" timestamp="1588924948476">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="220" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1581593038459" />
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1581512250163" />
-    <state width="1877" height="220" key="GridCell.Tab.0.center" timestamp="1581593038459">
+    <state width="1899" height="345" key="GridCell.Tab.0.bottom/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1588924948476" />
+    <state width="1899" height="345" key="GridCell.Tab.0.center" timestamp="1588924948476">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="220" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1581593038459" />
-    <state width="1877" height="285" key="GridCell.Tab.0.center/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1581512250163" />
-    <state width="1877" height="220" key="GridCell.Tab.0.left" timestamp="1581593038458">
+    <state width="1899" height="345" key="GridCell.Tab.0.center/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1588924948476" />
+    <state width="1899" height="345" key="GridCell.Tab.0.left" timestamp="1588924948476">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="220" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1581593038458" />
-    <state width="1877" height="285" key="GridCell.Tab.0.left/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1581512250163" />
-    <state width="1877" height="220" key="GridCell.Tab.0.right" timestamp="1581593038459">
+    <state width="1899" height="345" key="GridCell.Tab.0.left/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1588924948476" />
+    <state width="1899" height="345" key="GridCell.Tab.0.right" timestamp="1588924948476">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="220" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1581593038459" />
-    <state width="1877" height="285" key="GridCell.Tab.0.right/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1581512250163" />
-    <state width="1877" height="276" key="GridCell.Tab.1.bottom" timestamp="1581590141487">
+    <state width="1899" height="345" key="GridCell.Tab.0.right/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1588924948476" />
+    <state width="1899" height="155" key="GridCell.Tab.1.bottom" timestamp="1588924948472">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="276" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1581590141487" />
-    <state width="1877" height="276" key="GridCell.Tab.1.center" timestamp="1581590141487">
+    <state width="1899" height="155" key="GridCell.Tab.1.bottom/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1588924948472" />
+    <state width="1899" height="155" key="GridCell.Tab.1.center" timestamp="1588924948472">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="276" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1581590141487" />
-    <state width="1877" height="276" key="GridCell.Tab.1.left" timestamp="1581590141487">
+    <state width="1899" height="155" key="GridCell.Tab.1.center/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1588924948472" />
+    <state width="1899" height="155" key="GridCell.Tab.1.left" timestamp="1588924948472">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="276" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1581590141487" />
-    <state width="1877" height="276" key="GridCell.Tab.1.right" timestamp="1581590141487">
+    <state width="1899" height="155" key="GridCell.Tab.1.left/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1588924948472" />
+    <state width="1899" height="155" key="GridCell.Tab.1.right" timestamp="1588924948472">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="276" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1581590141487" />
+    <state width="1899" height="155" key="GridCell.Tab.1.right/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1588924948472" />
     <state x="841" y="248" key="RollbackChangesDialog" timestamp="1581576504516">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="841" y="248" key="RollbackChangesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1581576504516" />
     <state x="841" y="248" key="RollbackChangesDialog/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1581331524664" />
-    <state x="440" y="100" key="SettingsEditor" timestamp="1581591103743">
+    <state x="440" y="100" key="SettingsEditor" timestamp="1588922909766">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="440" y="100" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1581591103743" />
-    <state x="440" y="100" key="SettingsEditor/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1581331670052" />
+    <state x="440" y="100" key="SettingsEditor/1920.304.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1588922909766" />
     <state x="552" y="259" key="Vcs.Push.Dialog.v2" timestamp="1581592975966">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

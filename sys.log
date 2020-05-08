@@ -1,0 +1,8 @@
+ERROR:TeleBot:UnboundLocalError occurred, args=("local variable 'cd' referenced before assignment",)
+Traceback (most recent call last):
+  File "C:\Users\sahmadpur\.virtualenvs\bildilchinbot\lib\site-packages\telebot\util.py", line 60, in run
+    task(*args, **kwargs)
+  File "C:/Users/sahmadpur/Desktop/Projects/bildilchinbot/bildilchinbot/main.py", line 98, in word_search
+    if cd == "":
+UnboundLocalError: local variable 'cd' referenced before assignment
+
